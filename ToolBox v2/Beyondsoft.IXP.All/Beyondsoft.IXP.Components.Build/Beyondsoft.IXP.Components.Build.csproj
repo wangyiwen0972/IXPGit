@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{DB52289F-5E71-4C71-8207-9405EE65C8A6}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Beyondsoft.IXP.Components.Build</RootNamespace>
+    <AssemblyName>Beyondsoft.IXP.Components.Build</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.TeamFoundation.Client, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Internal\Microsoft.TeamFoundation.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.TeamFoundation.VersionControl.Client, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Internal\Microsoft.TeamFoundation.VersionControl.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.TeamFoundation.WorkItemTracking.Client, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Internal\Microsoft.TeamFoundation.WorkItemTracking.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Commands\Beyondsoft.IXP.Components.Build.JobCommands.cs" />
+    <Compile Include="Commands\Beyondsoft.IXP.Components.Build.SDCommand.cs" />
+    <Compile Include="EventArgs\Beyondsoft.IXP.Components.Build.BuildEventArgs.cs" />
+    <Compile Include="Beyondsoft.IXP.Components.Build.Step.cs" />
+    <Compile Include="Beyondsoft.IXP.Components.Build.Job.cs" />
+    <Compile Include="Beyondsoft.IXP.Components.Build.Task.cs" />
+    <Compile Include="Exceptions\Beyondsoft.IXP.Components.Build.Exceptions.cs" />
+    <Compile Include="Jobs\Beyondsoft.IXP.Components.Build.SyncSourceCodeJob.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Steps\Beyondsoft.IXP.Components.Build.CreateSDClientStep.cs" />
+    <Compile Include="Steps\Beyondsoft.IXP.Components.Build.DeployDxBuildStep.cs" />
+    <Compile Include="Steps\Beyondsoft.IXP.Components.Build.RunBuildStep.cs" />
+    <Compile Include="Steps\Beyondsoft.IXP.Components.Build.RunDxBuildStep.cs" />
+    <Compile Include="Steps\Beyondsoft.IXP.Components.Build.SyncSDFilesStep.cs" />
+    <Compile Include="Steps\Beyondsoft.IXP.Components.Build.SyncTFSFilesStep.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Beyondsoft.IXP.Model\Beyondsoft.IXP.Model.csproj">
+      <Project>{66cd7117-ceb9-42c7-9cfb-b5147fc5704f}</Project>
+      <Name>Beyondsoft.IXP.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Beyondsoft.IXP.Utility\Beyondsoft.IXP.Utility.csproj">
+      <Project>{e37d84dc-0d85-4a2a-8bc6-7a08ed5a646f}</Project>
+      <Name>Beyondsoft.IXP.Utility</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Commands\Beyondsoft.IXP.Components.Build.CommandFactory.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
